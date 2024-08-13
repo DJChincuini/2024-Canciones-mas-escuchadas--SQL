@@ -1,4 +1,7 @@
+--- Creo el Schema
 CREATE SCHEMA canciones2024;
+
+--- Creo las tablas que voy a utilizar
 
 CREATE TABLE IF NOT EXISTS canciones (
 	ID					INT PRIMARY KEY,
@@ -43,4 +46,6 @@ CREATE TABLE IF NOT EXISTS misc (
     SHAZAM_COUNTS				INT
 );
 
+
+--- Creo una tabla temporal para cargar el dataset
 
