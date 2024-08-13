@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS temp_canciones (
 
 --- Cargo los datos del dataset a la tabla temporal
 
-LOAD DATA INFILE "/Dataset/Most Streamed Songs 2024.csv"
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Most Streamed Songs 2024.csv'
 INTO TABLE temp_canciones
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"' 
