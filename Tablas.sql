@@ -4,8 +4,8 @@ CREATE SCHEMA canciones2024;
 --- Creo las tablas que voy a utilizar
 CREATE TABLE IF NOT EXISTS canciones (
 	ID					INT PRIMARY KEY,
+	SONG				VARCHAR(50),
 	ALBUM				VARCHAR(100),
-    NAME				VARCHAR(50),
     ARTIST				VARCHAR(100),
     RELEASE_DATE		VARCHAR(100),
     ALL_TIME_RANK		INT,
@@ -94,5 +94,7 @@ IGNORE 1 ROWS;
 
 
 --- Paso las columnas de la tabla temporal a las tablas correspondientes
-
+INSERT INTO canciones (ID,SONG,ALBUM,ARTIST,RELEASE_DATE,ALL_TIME_RANK,SCORE,EXPLICIT)
+SELECT ID, SONG, ALBUM, ARTIST, RELEASE_DATE, ALL_TIME_RANK, Track_Score, Explicit_Track
+FROM temp_canciones;
 
