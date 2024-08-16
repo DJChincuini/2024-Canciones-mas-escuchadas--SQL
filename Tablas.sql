@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS temp_canciones (
     SOUNDCLOUD_STREAMS			INT,
     SHAZAM_COUNTS				INT,
     Explicit_Track				INT
-);
+) CHARACTER SET utf8mb4;
 
 
 --- Cargo los datos del dataset a la tabla temporal
