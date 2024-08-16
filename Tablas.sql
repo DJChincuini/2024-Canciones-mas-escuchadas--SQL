@@ -93,6 +93,6 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
-
+--- Paso las columnas de la tabla temporal a las tablas correspondientes
 
 
