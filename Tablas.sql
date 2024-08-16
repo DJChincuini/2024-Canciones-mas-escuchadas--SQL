@@ -2,7 +2,6 @@
 CREATE SCHEMA canciones2024;
 
 --- Creo las tablas que voy a utilizar
-
 CREATE TABLE IF NOT EXISTS canciones (
 	ID					INT PRIMARY KEY,
 	ALBUM				VARCHAR(100),
@@ -52,7 +51,6 @@ CREATE TABLE IF NOT EXISTS misc (
 
 
 --- Creo una tabla temporal para cargar el dataset
-
 DROP TABLE IF EXISTS temp_canciones;
 CREATE TABLE IF NOT EXISTS temp_canciones (
 	ID							INT PRIMARY KEY,
@@ -87,7 +85,6 @@ CREATE TABLE IF NOT EXISTS temp_canciones (
 ) CHARACTER SET utf8mb4;
 
 --- Cargo los datos del dataset a la tabla temporal
-
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Most Streamed Songs 2024.csv'
 INTO TABLE temp_canciones
 FIELDS TERMINATED BY ','
