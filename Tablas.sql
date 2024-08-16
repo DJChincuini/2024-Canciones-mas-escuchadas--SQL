@@ -91,10 +91,12 @@ CREATE TABLE IF NOT EXISTS temp_canciones (
 
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Most Streamed Songs 2024.csv'
 INTO TABLE temp_canciones
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+
 
 
 
