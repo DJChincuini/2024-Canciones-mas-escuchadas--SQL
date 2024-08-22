@@ -26,3 +26,12 @@ JOIN spotify s ON c.ID = s.ID
 JOIN tiktok t ON c.ID = t.ID
 GROUP BY c.ID, c.SONG, c.ARTIST, y.YOUTUBE_VIEWS
 HAVING y.YOUTUBE_VIEWS > (AVG(s.SPOTIFY_STREAMS) + AVG(t.TIKTOK_VIEWS)) / 2;
+
+--- Correlación entre las vistas de tiktok y las escuchas en spotify
+SELECT 
+    (COUNT(*) * SUM(s.SPOTIFY_STREAMS * t.TIKTOK_VIEWS) - SUM(s.SPOTIFY_STREAMS) * SUM(t.TIKTOK_VIEWS)) /
+    (SQRT(COUNT(*) * SUM(POW(s.SPOTIFY_STREAMS, 2)) - POW(SUM(s.SPOTIFY_STREAMS), 2)) * 
+     SQRT(COUNT(*) * SUM(POW(t.TIKTOK_VIEWS, 2)) - POW(SUM(t.TIKTOK_VIEWS), 2))
+    ) AS correlacion
+FROM spotify s
+JOIN tiktok t ON s.ID = t.ID;
