@@ -1,4 +1,4 @@
---- Mayores vistas en youtube que en Spotify y TikTok
+--- Mayores vistas en Youtube que en Spotify y TikTok
 SELECT
 	c.SONG,
     c.ARTIST,
