@@ -28,7 +28,7 @@ GROUP BY c.ID, c.SONG, c.ARTIST, y.YOUTUBE_VIEWS
 HAVING y.YOUTUBE_VIEWS > (AVG(s.SPOTIFY_STREAMS) + AVG(t.TIKTOK_VIEWS)) / 2;
 
 
---- Correlación entre las vistas de tiktok y las escuchas en spotify
+--- Correlación entre las vistas/escuchas entre Youtube, Spotify y TikTok
 SELECT 
     (COUNT(*) * SUM(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2)) * CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2))) - 
      SUM(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2))) * SUM(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2)))) /
@@ -36,6 +36,24 @@ SELECT
           POW(SUM(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2))), 2)) * 
      SQRT(COUNT(*) * SUM(POW(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2)), 2)) - 
           POW(SUM(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2))), 2))
-    ) AS correlacion
+    ) AS correlacion_Spotify_Tiktok,
+    (COUNT(*) * SUM(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2)) * CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2))) - 
+     SUM(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2))) * SUM(CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2)))) /
+    (SQRT(COUNT(*) * SUM(POW(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2)), 2)) - 
+          POW(SUM(CAST(s.SPOTIFY_STREAMS AS DECIMAL(20,2))), 2)) * 
+     SQRT(COUNT(*) * SUM(POW(CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2)), 2)) - 
+          POW(SUM(CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2))), 2))
+    ) AS correlacion_Spotify_Youtube,
+    (COUNT(*) * SUM(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2)) * CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2))) - 
+     SUM(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2))) * SUM(CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2)))) /
+    (SQRT(COUNT(*) * SUM(POW(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2)), 2)) - 
+          POW(SUM(CAST(t.TIKTOK_VIEWS AS DECIMAL(20,2))), 2)) * 
+     SQRT(COUNT(*) * SUM(POW(CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2)), 2)) - 
+          POW(SUM(CAST(y.YOUTUBE_VIEWS AS DECIMAL(20,2))), 2))
+    ) AS correlacion_TikTok_Youtube
 FROM spotify s
-JOIN tiktok t ON s.ID = t.ID;
+JOIN tiktok t ON s.ID = t.ID
+JOIN youtube y ON s.ID = y.ID;
+
+
+
