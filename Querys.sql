@@ -17,8 +17,8 @@ SELECT
 	c.SONG,
     c.ARTIST,
     y.YOUTUBE_VIEWS AS Vistas_en_Youtube,
-    (s.SPOTIFY_STREAMS) / COUNT(s.SPOTIFY_STREAMS) AS Promedio_en_Spotify,
-    (t.TIKTOK_VIEWS) / COUNT(t.TIKTOK_VIEWS) AS Promedio_en_TikTok
+    AVG(s.SPOTIFY_STREAMS) AS Promedio_en_Spotify,
+    AVG(t.TIKTOK_VIEWS) AS Promedio_en_TikTok
 FROM canciones c 
 JOIN youtube y ON c.ID = y.ID
 JOIN spotify s ON c.ID = s.ID
