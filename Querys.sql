@@ -9,7 +9,7 @@ FROM canciones c
 JOIN youtube y ON c.ID = y.ID
 JOIN spotify s ON c.ID = s.ID
 JOIN tiktok t ON c.ID = t.ID
-WHERE y.YOUTUBE_VIEWS > s.SPOTIFY_STREAMS;
+WHERE y.YOUTUBE_VIEWS > s.SPOTIFY_STREAMS AND y.YOUTUBE_VIEWS > t.TIKTOK_VIEWS;
 
 
 --- Mayores vistas en Youtube que el promedio de escuchas/vistas en Spotify y TikTok
