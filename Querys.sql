@@ -14,6 +14,7 @@ WHERE y.YOUTUBE_VIEWS > s.SPOTIFY_STREAMS;
 
 --- Mayores vistas en Youtube que el promedio de escuchas/vistas en Spotify y TikTok
 SELECT
+	c.ID,
 	c.SONG,
     c.ARTIST,
     y.YOUTUBE_VIEWS AS Vistas_en_Youtube,
@@ -23,4 +24,5 @@ FROM canciones c
 JOIN youtube y ON c.ID = y.ID
 JOIN spotify s ON c.ID = s.ID
 JOIN tiktok t ON c.ID = t.ID
-WHERE y.YOUTUBE_VIEWS > (s.SPOTIFY_STREAMS + t.TIKTOK_VIEWS) / 2;
+GROUP BY c.ID, c.SONG, c.ARTIST, y.YOUTUBE_VIEWS
+HAVING y.YOUTUBE_VIEWS > (AVG(s.SPOTIFY_STREAMS) + AVG(t.TIKTOK_VIEWS)) / 2;
