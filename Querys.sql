@@ -56,7 +56,7 @@ JOIN tiktok t ON s.ID = t.ID
 JOIN youtube y ON s.ID = y.ID;
 
 
---- Ranking de canciones en Spotify, TikTok y Youtube
+--- Ranking de canciones en Youtube, Spotify y TikTok
 SELECT 
 	c.ID,
     c.SONG,
