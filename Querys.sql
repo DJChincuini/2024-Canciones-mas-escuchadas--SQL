@@ -56,4 +56,21 @@ JOIN tiktok t ON s.ID = t.ID
 JOIN youtube y ON s.ID = y.ID;
 
 
+--- Ranking de canciones en Spotify, TikTok y Youtube
+SELECT 
+	c.ID,
+    c.SONG,
+    c.ARTIST,
+	y.YOUTUBE_VIEWS,
+    RANK() OVER (ORDER BY y.YOUTUBE_VIEWS DESC) AS rank_youtube,
+    s.SPOTIFY_STREAMS,
+    RANK() OVER (ORDER BY s.SPOTIFY_STREAMS DESC) AS rank_spotify,
+    t.TIKTOK_VIEWS,
+    RANK() OVER (ORDER BY t.TIKTOK_VIEWS DESC) AS rank_tiktok
+FROM canciones c
+JOIN spotify s ON c.ID = s.ID
+JOIN tiktok t ON c.ID = t.ID
+JOIN youtube y ON c.ID = y.ID;
+
+
 
