@@ -3,6 +3,8 @@
 
 En este repositorio, estaré presentando y demostrando mis habilidades en SQL a través del análisis de un dataset que recopila información sobre las canciones más populares y reproducidas en el año 2024. Este dataset no solo incluye detalles sobre las obras musicales, como el nombre del artista, el álbum, etc. Sino que también abarca datos relevantes sobre la cantidad de reproducciones que estas canciones han acumulado en diversas plataformas de streaming digital. Entre estas plataformas se destacan Spotify, YouTube, TikTok, Weezer, y muchas otras. A lo largo de este repositorio, aplicaré distintas técnicas y consultas en SQL para extraer información valiosa, realizar análisis comparativos entre las plataformas, y ofrecer una visión profunda del comportamiento de los usuarios y las tendencias musicales durante este año.
 
+# Archivos
+
 # Sobre mí
 
 📌 Mi nombre es Dante. Soy un estudiante apasionado de programación y la estadística con un enfoque especial en el diseño, desarrollo e implementación de soluciones robustas por medio del Data Engineering 💻 así cómo también de la búsqueda de insights a través de los datos y del pensamiento analítico a la hora de la toma de decisiones 📊.
