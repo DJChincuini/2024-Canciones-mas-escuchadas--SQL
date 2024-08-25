@@ -5,7 +5,7 @@ En este repositorio, estaré presentando y demostrando mis habilidades en SQL a 
 
 # Archivos
 
-Voy a estar trabajando con dos archivos:
+Voy a estar trabajando con dos archivos *.sql*:
 
 * ***Tablas:*** En este archivo podrán encontrar la carga del dataset así cómo la repartición de los datos en diversas tablas.
 
