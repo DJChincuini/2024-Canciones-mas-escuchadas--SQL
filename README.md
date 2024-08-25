@@ -7,9 +7,9 @@ En este repositorio, estaré presentando y demostrando mis habilidades en SQL a 
 
 Voy a estar trabajando con dos archivos:
 
-* Tablas: En este archivo podrán encontrar la carga del dataset así cómo la repartición de los datos en diversas tablas.
+* ***Tablas:*** En este archivo podrán encontrar la carga del dataset así cómo la repartición de los datos en diversas tablas.
 
-* Querys: En este archivo podrán encontrar las querys que voy a estar realizando.
+* ***Querys:*** En este archivo podrán encontrar las querys que voy a estar realizando.
 
 # Sobre mí
 
