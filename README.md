@@ -5,6 +5,12 @@ En este repositorio, estaré presentando y demostrando mis habilidades en SQL a 
 
 # Archivos
 
+Voy a estar trabajando con dos archivos:
+
+* Tablas: En este archivo podrán encontrar la carga del dataset así cómo la repartición de los datos en diversas tablas.
+
+* Querys: En este archivo podrán encontrar las querys que voy a estar realizando.
+
 # Sobre mí
 
 📌 Mi nombre es Dante. Soy un estudiante apasionado de programación y la estadística con un enfoque especial en el diseño, desarrollo e implementación de soluciones robustas por medio del Data Engineering 💻 así cómo también de la búsqueda de insights a través de los datos y del pensamiento analítico a la hora de la toma de decisiones 📊.
