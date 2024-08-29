@@ -80,5 +80,7 @@ SELECT
 FROM canciones c
 JOIN youtube y ON y.ID = c.ID
 JOIN tiktok t ON t.ID = c.ID
+JOIN spotify s ON s.ID = c.ID
 WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2) OR
+
 ;
