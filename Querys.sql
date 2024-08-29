@@ -78,5 +78,5 @@ SELECT
     c.SONG AS Canciones,
     c.ARTIST AS Artista
 FROM canciones c
-JOIN youtube y ON 
+JOIN youtube y ON y.ID = c.ID
 ;
