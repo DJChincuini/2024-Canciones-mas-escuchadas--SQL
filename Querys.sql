@@ -79,5 +79,6 @@ SELECT
     c.ARTIST AS Artista
 FROM canciones c
 JOIN youtube y ON y.ID = c.ID
-WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2)
+JOIN tiktok t ON t.ID = c.ID
+WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2) OR
 ;
