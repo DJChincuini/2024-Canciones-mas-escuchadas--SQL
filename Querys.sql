@@ -73,5 +73,9 @@ JOIN tiktok t ON c.ID = t.ID
 JOIN youtube y ON c.ID = y.ID;
 
 --- Canción con más likes
-
-
+SELECT
+	c.ID,
+    c.SONG AS Canciones,
+    c.ARTIST AS Artista
+FROM canciones c
+;
