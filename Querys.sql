@@ -79,5 +79,5 @@ SELECT
     c.ARTIST AS Artista
 FROM canciones c
 JOIN youtube y ON y.ID = c.ID
-WHERE y.YOUTUBE_LIKES
+WHERE y.YOUTUBE_LIKES = (SELECT y2.YOUTUBE_LIKES FROM youtube y2)
 ;
