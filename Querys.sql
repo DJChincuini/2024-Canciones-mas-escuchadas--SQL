@@ -1,12 +1,16 @@
---- Canción con más likes en Youtube
+--- Canción con más likes en Youtube y Tiktok
 SELECT
 	c.ID,
     c.SONG AS Canciones,
     c.ARTIST AS Artista
 FROM canciones c
 JOIN youtube y ON y.ID = c.ID
+JOIN tiktok t ON t.ID = c.ID
 WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2)
+OR t.TIKTOK_LIKES = (SELECT MAX(t2.TIKTOK_LIKES) FROM tiktok t2)
 ;
+
+SELECT * FROM spotify;
 
 --- Mayores vistas en Youtube que en Spotify y TikTok
 SELECT
