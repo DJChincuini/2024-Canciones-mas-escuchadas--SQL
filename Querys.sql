@@ -87,3 +87,13 @@ JOIN tiktok t ON c.ID = t.ID
 JOIN youtube y ON c.ID = y.ID;
 
 
+--- Canción explicita con más likes
+SELECT
+	c.ID,
+    c.SONG,
+    c.ARTIST,
+    y.YOUTUBE_LIKES
+FROM canciones c
+JOIN youtube y ON c.ID = y.ID
+WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2) AND c.EXPLICIT = 1;
+
