@@ -25,6 +25,23 @@ JOIN tiktok t ON c.ID = t.ID
 WHERE y.YOUTUBE_VIEWS > s.SPOTIFY_STREAMS AND y.YOUTUBE_VIEWS > t.TIKTOK_VIEWS;
 
 
+--- Ranking de canciones en Youtube, Spotify y TikTok
+SELECT 
+	c.ID,
+    c.SONG,
+    c.ARTIST,
+	y.YOUTUBE_VIEWS,
+    RANK() OVER (ORDER BY y.YOUTUBE_VIEWS DESC) AS rank_youtube,
+    s.SPOTIFY_STREAMS,
+    RANK() OVER (ORDER BY s.SPOTIFY_STREAMS DESC) AS rank_spotify,
+    t.TIKTOK_VIEWS,
+    RANK() OVER (ORDER BY t.TIKTOK_VIEWS DESC) AS rank_tiktok
+FROM canciones c
+JOIN spotify s ON c.ID = s.ID
+JOIN tiktok t ON c.ID = t.ID
+JOIN youtube y ON c.ID = y.ID;
+
+
 --- Mayores vistas en Youtube que el promedio de escuchas/vistas en Spotify y TikTok
 SELECT
 	c.ID,
@@ -67,23 +84,6 @@ SELECT
 FROM spotify s
 JOIN tiktok t ON s.ID = t.ID
 JOIN youtube y ON s.ID = y.ID;
-
-
---- Ranking de canciones en Youtube, Spotify y TikTok
-SELECT 
-	c.ID,
-    c.SONG,
-    c.ARTIST,
-	y.YOUTUBE_VIEWS,
-    RANK() OVER (ORDER BY y.YOUTUBE_VIEWS DESC) AS rank_youtube,
-    s.SPOTIFY_STREAMS,
-    RANK() OVER (ORDER BY s.SPOTIFY_STREAMS DESC) AS rank_spotify,
-    t.TIKTOK_VIEWS,
-    RANK() OVER (ORDER BY t.TIKTOK_VIEWS DESC) AS rank_tiktok
-FROM canciones c
-JOIN spotify s ON c.ID = s.ID
-JOIN tiktok t ON c.ID = t.ID
-JOIN youtube y ON c.ID = y.ID;
 
 
 --- Canción explicita con más likes
