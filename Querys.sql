@@ -89,7 +89,6 @@ JOIN youtube y ON c.ID = y.ID;
 
 --- Canción explicita con más likes
 SELECT
-	c.ID,
     c.SONG,
     c.ARTIST,
     y.YOUTUBE_LIKES
