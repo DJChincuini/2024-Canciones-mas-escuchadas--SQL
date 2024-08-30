@@ -10,7 +10,6 @@ WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2)
 OR t.TIKTOK_LIKES = (SELECT MAX(t2.TIKTOK_LIKES) FROM tiktok t2)
 ;
 
-SELECT * FROM spotify;
 
 --- Mayores vistas en Youtube que en Spotify y TikTok
 SELECT
