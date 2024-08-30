@@ -18,7 +18,11 @@ SELECT
     y.YOUTUBE_LIKES AS Likes_de_Youtube
 FROM canciones c
 JOIN youtube y ON c.ID = y.ID
-WHERE y.YOUTUBE_LIKES = (SELECT MAX(y2.YOUTUBE_LIKES) FROM youtube y2) AND c.EXPLICIT = 1;
+WHERE y.YOUTUBE_LIKES = (
+	SELECT MAX(y2.YOUTUBE_LIKES)
+    FROM youtube y2
+    JOIN canciones c2 ON y2.ID = c2.ID
+    WHERE c2.EXPLICIT = 1);
 
 
 --- Mayores vistas en Youtube que en Spotify y TikTok
