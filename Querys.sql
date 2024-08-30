@@ -1,3 +1,17 @@
+--- Mayores vistas en Youtube que en Spotify y TikTok
+SELECT
+	c.SONG,
+    c.ARTIST,
+    y.YOUTUBE_VIEWS AS Vistas_en_Youtube,
+    s.SPOTIFY_STREAMS AS Escuchas_en_Spotify,
+    t.TIKTOK_VIEWS AS Vistas_en_TikTok
+FROM canciones c 
+JOIN youtube y ON c.ID = y.ID
+JOIN spotify s ON c.ID = s.ID
+JOIN tiktok t ON c.ID = t.ID
+WHERE y.YOUTUBE_VIEWS > s.SPOTIFY_STREAMS AND y.YOUTUBE_VIEWS > t.TIKTOK_VIEWS;
+
+
 --- Canción con más likes en Youtube y Tiktok
 SELECT
 	c.ID,
@@ -24,20 +38,6 @@ WHERE y.YOUTUBE_LIKES = (
     JOIN canciones c2 ON y2.ID = c2.ID
     WHERE c2.EXPLICIT = 1
 );
-
-
---- Mayores vistas en Youtube que en Spotify y TikTok
-SELECT
-	c.SONG,
-    c.ARTIST,
-    y.YOUTUBE_VIEWS AS Vistas_en_Youtube,
-    s.SPOTIFY_STREAMS AS Escuchas_en_Spotify,
-    t.TIKTOK_VIEWS AS Vistas_en_TikTok
-FROM canciones c 
-JOIN youtube y ON c.ID = y.ID
-JOIN spotify s ON c.ID = s.ID
-JOIN tiktok t ON c.ID = t.ID
-WHERE y.YOUTUBE_VIEWS > s.SPOTIFY_STREAMS AND y.YOUTUBE_VIEWS > t.TIKTOK_VIEWS;
 
 
 --- Ranking de canciones en Youtube, Spotify y TikTok
